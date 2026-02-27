@@ -44,7 +44,7 @@ from session.session import Session
 
 s = Session("zsh")
 s.start()
-s.send_command("echo Hello from macOS!")
+s.send_command("echo Hello from MacOS!")
 s.stop()
 ```
 
