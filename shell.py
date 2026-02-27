@@ -12,6 +12,6 @@ def main():
       
 if __name__ == "__main__":
     if sys.platform != "win32":
-        print("Error: PyPTY is only available on Windows.")
+        print("Error: This is build is available only on Windows.")
         sys.exit(1)
     main()
