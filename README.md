@@ -1,5 +1,5 @@
 # PyPTY
-### A lightweight Python shell built on Windows ConPTY
+### A lightweight Python shell built on Windows ConPTY and POSIX PTY
 #### This project aims to give you a fully functional terminal session (console emulation).
 ---
 
