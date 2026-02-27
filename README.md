@@ -15,3 +15,49 @@ This project handles it explicitly, which makes it more robust for deeply nested
 | `!resize <cols> <rows>` | Resize the terminal |
 | `!restart` | Restart the root shell |
 | `exit` | Exits the child shell, or close if at parent shell |
+
+# Integration on Programs
+
+### Windows
+```python
+from session.session import Session
+
+s = Session("cmd.exe")
+s.start()
+s.send_command("echo Hello from Windows!")
+s.stop()
+```
+
+### Linux
+```python
+from session.session import Session
+
+s = Session("bash")
+s.start()
+s.send_command("echo Hello from Linux!")
+s.stop()
+```
+
+### macOS
+```python
+from session.session import Session
+
+s = Session("zsh")
+s.start()
+s.send_command("echo Hello from macOS!")
+s.stop()
+```
+
+### Cross-platform (auto-detect shell)
+
+```python
+import sys
+from session.session import Session
+
+shell = "cmd.exe" if sys.platform == "win32" else None
+s = Session(shell)
+s.start()
+s.send_command("echo Hello!")
+s.stop()
+```
+
