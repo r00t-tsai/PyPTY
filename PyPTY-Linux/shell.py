@@ -13,6 +13,6 @@ def main():
 
 if __name__ == "__main__":
     if sys.platform == "win32":
-        print("Error: This is build is available only on Linux.")
+        print("Error: This build is available only on Linux.")
         sys.exit(1)
     main()
