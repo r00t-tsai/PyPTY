@@ -1,5 +1,5 @@
 import time
-from core.conpty    import ConPTY
+from core.pypty    import ConPTY
 from process.process   import spawn, ChildProcess
 from iobridge.io_bridge import IOBridge
 
