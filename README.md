@@ -16,7 +16,7 @@ This project handles it explicitly, which makes it more robust for deeply nested
 | `!restart` | Restart the root shell |
 | `exit` | Exits the child shell, or close if at parent shell |
 
-# Integration on Programs
+# Integration
 
 ### Windows
 ```python
