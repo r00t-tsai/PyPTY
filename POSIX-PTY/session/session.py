@@ -50,6 +50,10 @@ class Session:
         if self._bridge:
             self._bridge.send(data)
 
+    def send_fast(self, data: bytes):
+        if self._bridge:
+            self._bridge.send_fast(data)
+
     def resize(self, cols: int, rows: int):
         if self._pty:
             self._pty.resize(cols, rows)
