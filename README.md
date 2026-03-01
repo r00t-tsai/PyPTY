@@ -1,5 +1,5 @@
 # PyPTY
-### A lightweight Python shell library built on Windows ConPTY and POSIX PTY
+### A simple lightweight Python shell library built on Windows ConPTY and POSIX PTY
 #### This project aims to give you a fully functional terminal session (console emulation). Useful for Web Terminal Development, Cloud IDEs, CLI Tool Automation, or if you just need Shell Stacking.
 ---
 
