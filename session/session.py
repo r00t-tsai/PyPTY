@@ -1,5 +1,5 @@
 import time
-from core.pypty    import ConPTY
+from core.conpty       import ConPTY
 from process.process   import spawn, ChildProcess
 from iobridge.io_bridge import IOBridge
 
@@ -15,9 +15,9 @@ class Session:
     ):
         self._shell    = shell
         self._encoding = encoding
-        self._conpty:   ConPTY | None        = None
-        self._process:  ChildProcess | None  = None
-        self._bridge:   IOBridge | None      = None
+        self._conpty:   ConPTY | None       = None
+        self._process:  ChildProcess | None = None
+        self._bridge:   IOBridge | None     = None
 
     def start(self, cols: int = 120, rows: int = 30):
         self._conpty  = ConPTY(cols, rows)
@@ -41,7 +41,6 @@ class Session:
         if self._conpty:
             self._conpty.close()
 
-
     def send_command(self, command: str, delay: float = 0.05):
         if self._bridge:
             self._bridge.send_line(command, self._encoding)
@@ -50,6 +49,10 @@ class Session:
     def send_raw(self, data: bytes):
         if self._bridge:
             self._bridge.send(data)
+
+    def send_fast(self, data: bytes):
+        if self._bridge:
+            self._bridge.send_fast(data)
 
     def resize(self, cols: int, rows: int):
         if self._conpty:
