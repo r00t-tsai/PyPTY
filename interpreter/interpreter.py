@@ -1,5 +1,7 @@
 import time
 import shlex
+import msvcrt
+import threading
 
 from session.session import Session
 
@@ -21,6 +23,29 @@ subshell = {
     "wsl", "bash", "bash.exe",
     "ftp", "telnet", "sftp",
 }
+
+_CTRL_C = b"\x03"
+_CTRL_Z = b"\x03"
+_CR = b"\r\n"
+
+class msvcrtrdr:
+  _pass = {0x03, 0x1a, 0x1b}
+  def __init__(self):
+    self.l_queue: list[str] = []
+    self.ctrl_queue: list[bytes] = []
+    self._buf = []
+    self._lock  = threading.Lock()
+    self._event = threading.Event()
+    self._stop  = threading.Event()
+    self._thread = threading.Thread(
+        target=self._read_loop, daemon=True, name="msvcrtrdr"
+    )
+    
+  def start(self):
+      self._thread.start()
+
+  def stop(self):
+      self._stop.set()
 
 
 class Shell:
