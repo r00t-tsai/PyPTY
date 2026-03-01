@@ -30,10 +30,10 @@ subshell = {
     "gdb", "lldb",
 }
 
-_CTRL_C = b"\x03"  
-_CTRL_D = b"\x04"  
-_CTRL_Z = b"\x1a"   
-_CTRL_L = b"\x0c" 
+_CTRL_C = b"\x03"
+_CTRL_D = b"\x04"
+_CTRL_Z = b"\x1a"
+_CTRL_L = b"\x0c"
 
 _PASSTHROUGH = {0x03, 0x04, 0x1a, 0x0c}
 
@@ -42,7 +42,7 @@ class _termiosttyrdr:
 
     def __init__(self, fd: int = sys.stdin.fileno()):
         self._fd         = fd
-        self._old_attrs  = None       
+        self._old_attrs  = None
         self._buf: list[str] = []
         self.line_queue:  list[str]   = []
         self.ctrl_queue:  list[bytes] = []
@@ -87,7 +87,7 @@ class _termiosttyrdr:
                     self.ctrl_queue.append(ch)
                 self._event.set()
 
-            elif b in (0x0D, 0x0A): 
+            elif b in (0x0D, 0x0A):
                 line = "".join(self._buf)
                 self._buf.clear()
                 sys.stdout.write("\r\n")
@@ -102,7 +102,7 @@ class _termiosttyrdr:
                     sys.stdout.write("\x08 \x08")
                     sys.stdout.flush()
 
-            elif b == 0x1B: 
+            elif b == 0x1B:
                 select.select([self._fd], [], [], 0.02)
                 try:
                     os.read(self._fd, 8)
@@ -224,7 +224,7 @@ class Shell:
         else:
             try:
                 cmd_name = shlex.split(line)[0].lower()
-                cmd_name = cmd_name.split("/")[-1]  
+                cmd_name = cmd_name.split("/")[-1]
             except ValueError:
                 cmd_name = ""
 
@@ -236,17 +236,13 @@ class Shell:
                 self._session.send_command(line)
                 time.sleep(0.2)
 
-
     def _ctrl_c(self):
-
         if self._session:
-            self._session.send_raw(_CTRL_C)
+            self._session.send_urgent(_CTRL_C)
 
     def _ctrl_d(self):
-
         if self._session:
-            self._session.send_raw(_CTRL_D)
-
+            self._session.send_urgent(_CTRL_D)
 
     def cleanup(self):
         while self._stack:
