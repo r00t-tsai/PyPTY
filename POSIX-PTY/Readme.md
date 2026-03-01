@@ -8,7 +8,7 @@ class webbridge(IOBridge):
     def __init__(self, master_fd: int, on_output_callback):
         super().__init__(master_fd)
         # We override the reader to send data to a callback (like a WebSocket)
-        self._reader = WebOutputReader(master_fd, on_output_callback)
+        self._reader = webreader(master_fd, on_output_callback)
 
 class webreader(OutputReader):
     def __init__(self, master_fd, callback):
