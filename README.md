@@ -7,6 +7,13 @@
 Shell stacking (tracking diskpart → cmd → powershell nesting) is something most tools don't do at all. They either close everything on exit or leave orphaned processes.
 This project handles it explicitly, which makes it more robust for deeply nested interactive sessions than most lightweight shell wrappers, and it uses Windows' native ConPTY and POSIX Pseudoterminals to support ANSI escape codes (colors, bold text) and complex interactive CLI tools.
 
+---
+
+#### UPDATES:
+3/1/2026 - Ctrl + C Propagation Handling added via `msvcrt` or `termios + tty` for the POSIX script.
+
+---
+
 # Built-in commands
 | Command | Description |
 |---|---|
