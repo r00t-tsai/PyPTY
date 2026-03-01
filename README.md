@@ -10,7 +10,7 @@ This project handles it explicitly, which makes it more robust for deeply nested
 ---
 
 #### UPDATES:
-3/1/2026 - Ctrl + C Propagation Handling added via `msvcrt` or `termios + tty` for the POSIX script.
+**3/1/2026** - Ctrl + C Propagation Handling added via `msvcrt` or `termios + tty` for the POSIX script.
 
 ---
 
