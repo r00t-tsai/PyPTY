@@ -21,7 +21,7 @@ This project handles it explicitly, which makes it more robust for deeply nested
 
 #### SECURITY LIMITATIONS:
 * This library gives the website user raw access to a shell (/bin/bash). Run this inside a Docker container or a Sandbox to prevent the user from deleting files on your host server. You don't want people to `sudo rm -rf /` your host machine.
-* For a production site, your server must instantiate a new Session for every unique WebSocket connection to prevent users from seeing or controlling each other's terminals.
+* For a production site, your server must instantiate a new Session for every unique WebSocket connection to prevent users from seeing or controlling each other's terminals. (Currently working on this. Contributions will be much appreciated.)
 
 ---
 
