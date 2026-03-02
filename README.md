@@ -16,7 +16,7 @@ This project handles it explicitly, which makes it more robust for deeply nested
 * Strips hidden formatting codes (ANSI) and suppresses "echoed" text, so you only see the command's actual results rather than a repeat of what you typed.
 * Initial system banners (like Windows or Shell welcome messages) now display fully before the automated filters kick in.
 * Added native support for both Windows `msvcrt` and Linux/Mac `termios` to ensure stable keyboard input across all systems.
-* Web integration for the POSIX version is supported. Please see the separate ReadMe on the POSIX-PTY directory for more information.
+* Web integration for the POSIX version is supported. Please see the separate [Readme.md](https://github.com/r00t-tsai/PyPTY/blob/main/POSIX-PTY/ReadMe.md) on the POSIX-PTY directory for more information.
 ---
 
 #### SECURITY LIMITATIONS:
