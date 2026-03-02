@@ -41,7 +41,7 @@ async def terminal_handler(websocket):
         )
 
     # Use callback instead of sys.stdout
-    session._bridge = WebIOBridge(session._pty.master_fd, on_pty_output)
+    session._bridge = webbridge(session._pty.master_fd, on_pty_output)
     session._bridge.start()
 
     try:
