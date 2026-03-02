@@ -19,6 +19,9 @@ This project handles it explicitly, which makes it more robust for deeply nested
 * Web integration for the POSIX version is supported. Please see the separate ReadMe on the POSIX-PTY directory for more information.
 ---
 
+#### SECURITY LIMITATIONS:
+* This library gives the website user raw access to a shell (/bin/bash). Run this inside a Docker container or a Sandbox to prevent the user from deleting files on your host server.
+
 # Built-in commands
 | Command | Description |
 |---|---|
