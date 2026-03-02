@@ -10,12 +10,13 @@ This project handles it explicitly, which makes it more robust for deeply nested
 ---
 
 #### UPDATES:
-**3/1/2026**
+**3/1/2026** - Windows & Posix v1.1
 
 * Ctrl+C and Ctrl+D now work instantly. They bypass input queues to stop processes immediately without crashing the script.
 * Strips hidden formatting codes (ANSI) and suppresses "echoed" text, so you only see the command's actual results rather than a repeat of what you typed.
 * Initial system banners (like Windows or Shell welcome messages) now display fully before the automated filters kick in.
 * Added native support for both Windows `msvcrt` and Linux/Mac `termios` to ensure stable keyboard input across all systems.
+* Web integration for the POSIX version is supported. Please see the separate ReadMe on the POSIX-PTY directory for more information.
 ---
 
 # Built-in commands
