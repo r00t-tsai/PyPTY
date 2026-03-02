@@ -58,3 +58,4 @@ async def terminal_handler(websocket):
 # Start the server
 # start_server = websockets.serve(terminal_handler, "localhost", 8080)
 ```
+LIMITATIONS: This example shows a single terminal_handler. For your website with multiple users, you would need to ensure each WebSocket connection spawns its own unique Session instance.
